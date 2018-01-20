@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Detail;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -137,6 +138,9 @@ class SiteController extends Controller
 
     public function actionGallery()
     {
-        return $this->render('gallery');
+
+        $images = Detail::getAllBasic();
+
+        return $this->render('gallery', array('images' => $images));
     }
 }
